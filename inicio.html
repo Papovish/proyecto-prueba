@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tipos de Usuarios</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #000;
+      padding: 80px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #000;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .usuarios-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .usuario-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      width: 300px;
+      padding: 20px;
+      transition: transform 0.2s ease-in-out;
+      border: 2px solid #000;
+      text-align: center;
+    }
+
+    .usuario-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .usuario-card h2 {
+      color: #000;
+      margin-bottom: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .usuario-card p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    .admin {
+      border-left: 5px solid #000;
+      padding-left: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Tipos de Usuarios</h1>
+
+  <nav>
+  <div class="usuarios-container">
+   
+      
+      
+       
+    
+
+    <div class="usuario-card">
+    <a href="propietario_form.php" style="text-decoration: none;"><h2>Dueño de Inmueble</h2></a>
+    
+      <p>
+        
+      </p>
+    </div>
+ 
+    <div class="usuario-card">
+    <a href="gestor_form.php" style="text-decoration: none;"><h2>Gestor Inmobiliario Free</h2></a>  
+      <p>
+       
+      </p>
+    </div>
+  </div>
+</nav>
+</body>
+</html>

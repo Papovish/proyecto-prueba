@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recuperar Contraseña</title>
+  <link rel="stylesheet" href="css/form.css" />
+  <!-- SweetAlert2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet" />
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+    import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBM1jr_rZ59FIe-L4vxNYbMgoSAaVJ6EU4",
+      authDomain: "proyectopenka.firebaseapp.com",
+      projectId: "proyectopenka",
+      storageBucket: "proyectopenka.firebasestorage.app",
+      messagingSenderId: "1024809937086",
+      appId: "1:1024809937086:web:c9122cb3aceedf84ab16ef",
+      measurementId: "G-D6DJ5RXRKR"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.recuperarContrasena = function(email) {
+      const actionCodeSettings = {
+        url: window.location.origin + '/login.html',
+        handleCodeInApp: false
+      };
+      return sendPasswordResetEmail(auth, email, actionCodeSettings);
+    };
+  </script>
+</head>
+<body>
+  <div class="contenedor">
+    <form class="formulario-recuperar" id="form-recuperar">
+      <h2>¿Ha Olvidado Su contraseña?</h2>
+      <p>Ingrese Su correo electrónico para enviarle un enlace de recuperación.</p>
+
+      <input type="email" placeholder="Correo electrónico" required id="email-input" name="email" />
+      <button type="submit">Enviar enlace</button>
+
+      <a href="login.html" class="volver-login">Volver al inicio de sesión</a>
+    </form>
+  </div>
+
+  <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    document.getElementById("form-recuperar").addEventListener("submit", function (event) {
+      event.preventDefault();
+      const emailInput = document.getElementById("email-input");
+      const email = emailInput.value.trim();
+
+      // Simple email regex validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(email)) {
+        Swal.fire({
+          icon: "error",
+          title: "Correo inválido",
+          text: "Por favor, ingrese un correo electrónico válido.",
+          confirmButtonText: "Aceptar",
+        });
+        return;
+      }
+
+      // Usar Firebase para enviar correo de recuperación
+      window
+        .recuperarContrasena(email)
+        .then(() => {
+          Swal.fire({
+            icon: "success",
+            title: "Correo enviado",
+            text: "Se ha enviado un enlace de recuperación a su correo.",
+            confirmButtonText: "Aceptar",
+          }).then(() => {
+            this.reset();
+          });
+        })
+        .catch((error) => {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: error.message,
+            confirmButtonText: "Aceptar",
+          });
+        });
+    });
+  </script>
+</body>
+</html>

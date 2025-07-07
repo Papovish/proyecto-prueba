@@ -1,0 +1,121 @@
+/* Styles for forms to unify aesthetic with inicio, login, and index pages */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    color: #000;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    font-weight: 900;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+form {
+    background: #fff;
+    padding: 30px 45px;
+    border-radius: 0;
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    max-width: 500px;
+    margin: 0 auto 40px auto;
+    border: 2px solid #000;
+    transition: box-shadow 0.3s ease;
+}
+
+form:hover {
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #000;
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="file"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    border: 2px solid #000;
+    border-radius: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="file"]:focus {
+    border-color: #000;
+    box-shadow: 0 0 6px #000;
+    outline: none;
+}
+
+.sexo-group {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.sexo-group label {
+    font-weight: 600;
+    margin: 0;
+    color: #000;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.sexo-group input[type="radio"] {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+button {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 14px 0;
+    font-size: 18px;
+    font-weight: 900;
+    border-radius: 0;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+button:hover {
+    background-color: #222;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
+
+@media (max-width: 520px) {
+    form {
+        padding: 25px 30px;
+        width: 95%;
+    }
+    h2 {
+        font-size: 24px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+}

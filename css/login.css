@@ -1,0 +1,194 @@
+body {
+  background: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#cajalogin {
+  display: flex;
+  width: 700px;
+  border: 2px solid #000;
+  background-color: #fff;
+  margin: auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 0;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+#cajalogin .photo-container {
+  width: 40%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cajalogin .photo-container img {
+  max-width: 80%;
+  height: auto;
+  border: 2px solid #fff;
+}
+
+#cajalogin #datos {
+  width: 60%;
+  padding: 2rem 3rem;
+  box-sizing: border-box;
+}
+
+#titulologin {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #000;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.textoform {
+  font-size: 1rem;
+  color: #111;
+  text-align: left;
+  font-weight: 600;
+}
+
+.textoform label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.textoform input[type="email"],
+.textoform input[type="password"] {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid #000;
+  border-radius: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.textoform input[type="email"]:focus,
+.textoform input[type="password"]:focus {
+  outline: none;
+  border-color: #000;
+}
+
+#btn {
+  background-color: #000;
+  border: none;
+  color: #fff;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  border-radius: 0;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+#btn:hover {
+  background-color: #222;
+}
+
+.texthiper {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.texthiper a {
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.texthiper a:hover {
+  color: #555;
+}
+
+
+
+
+
+/* Removed background image and old styles for black and white simple theme */
+body {
+  background: #fff !important;
+}
+
+.titulos {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.8rem;
+  color: #000 !important;
+  text-align: center;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+}
+
+.textoform {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  color: #000 !important;
+  text-align: left;
+  font-weight: 600;
+}
+
+a {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  color: #000 !important;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #555 !important;
+}
+
+.texthiper {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+#btn {
+  background-color: #000 !important;
+  border: none !important;
+  color: #fff !important;
+  padding: 12px 28px !important;
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+  border-radius: 0 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  transition: background-color 0.3s ease !important;
+  width: 100% !important;
+}
+
+#btn:hover {
+  background-color: #222 !important;
+}
+
+:is(input, textarea):invalid {
+  background: rgb(159, 64, 64) !important;
+}
+
+:is(input, textarea):valid {
+  background: rgb(133, 175, 133) !important;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticacion Sistemas Propiedades</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+   
+    function enviar() {
+        const email = document.forms.form.Usuario.value;
+        const clave = document.forms.form.clave.value;
+
+        if (email === "") {
+            Swal.fire("Oops!", "Debe ingresar el usuario", "warning");
+            document.forms.form.Usuario.focus();
+            return false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            Swal.fire("Oops!", "Debe ingresar un email válido", "warning");
+            return false;
+        }
+
+        if (clave === "") {
+            Swal.fire("Oops!", "Debe ingresar la clave", "warning");
+            document.forms.form.clave.focus();
+            return false;
+        }
+
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$/;
+        if (!passwordRegex.test(clave)) {
+            Swal.fire("Oops!", "Debe ingresar una clave robusta (mínimo 8 caracteres, incluyendo mayúscula, minúscula, número y símbolo)", "warning");
+            return false;
+        }
+
+        // Si todo está correcto, enviar formulario al servidor
+        document.forms.form.submit();
+    }
+
+    $(document).ready(function () {
+        const params = new URLSearchParams(window.location.search);
+        
+        if (params.get("success") === "1") {
+            Swal.fire({
+                title: 'Good job!',
+                text: 'Inicio de sesión exitoso',
+                icon: 'success',
+                confirmButtonText: 'Continuar'
+            });
+        }
+
+        if (params.get("error") === "1") {
+            Swal.fire({
+                title: 'Oops!',
+                text: 'Usuario o contraseña incorrectos',
+                icon: 'error',
+                confirmButtonText: 'Intentar de nuevo'
+            });
+        }
+    });
+
+    </script>
+</head>
+<body>
+    
+    
+    
+
+    <div id="cajalogin">
+      <div class="photo-container">
+        <img src="img/anuncio.png" alt="Foto de autenticación" style="width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto; border: 2px solid #000;" />
+      </div>
+      <div id="datos">
+        <div id="titulologin" class="titulos">Autenticacion Sistema</div>
+        <form action="procesa.php" name="form" method="post" class="textoform">
+          <label for="fname">Usuario:</label><br>
+          <input type="email" id="fname" name="Usuario" required><br>
+          <label for="lname">Contraseña:</label><br>
+          <input type="password" id="fclave" name="clave" minlength="8" maxlength="20" required><br><br>
+          <input type="button" onclick="enviar();" value="Ingresar" class="button" id="btn">
+        </form>
+        <div id="Registrarme" class="texthiper"><a href="inicio.html">Registrarme</a></div>
+        <div id="Olvide" class="texthiper"><a href="recuperar.html">Recuperar Contraseña</a></div>
+        <div id="VolverInicio" style="margin-top: 20px; margin-left: 0;">
+          <a href="index.html" style="display: inline-block; padding: 10px 20px; background-color: #000; color: white; text-decoration: none; border-radius: 0; font-weight: bold; width: fit-content; text-align: center;">
+            Volver al inicio
+          </a>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

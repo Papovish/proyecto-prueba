@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina</title>
+    <!--link del css-->
+    <link rel="stylesheet" href="css/pagina.css">
+    <!-- Caja iconos-->
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+     <header>
+        <div class="nav container">
+            <!--Logo-->
+            <a href="index.html" class="logo"><i class='bx bx-home'></i>PNK INMOBILIARIA</a>
+            <!-- Menu Icono-->
+             <input type="checkbox" name="" id="menu">
+             <label for="menu" <i class='bx bx-menu' id="menu-icon"></i>></label>
+             <!-- Nav List-->
+              <ul class="navbar">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="propiedadesver.html">Ventas</a></li>
+                <li><a href="propiedadesver.html">Propiedades</a></li>
+              </ul>
+              <!--boton inicio sesion-->
+              <a href="login.html" class="btn">Inicio de sesion</a>
+              <a href="inicio.html" class="btn">Registrarse</a>
+        </div>
+     </header>
+     <!-- Home-->
+      <section class="home container" id="home">
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <div class="home-jpeg" id="home img" style="flex: 1;"></div>
+          <div class="home-text" style="flex: 1;">
+            <h1>Tu espacio ideal <br> para comprar y vender casas<br> </h1>
+            <p style="font-size: 1.2rem; font-weight: 600; color: #000;">
+              Inmobiliaria PNK - Compra y venta de casas a tu alcance
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Casas rotativas -->
+      <section class="casas-rotativas container" style="margin-top: 40px;">
+        <h2 style="text-align: center; margin-bottom: 20px; text-transform: uppercase; font-weight: bold; color: #000;">Casas Destacadas</h2>
+        <div id="carousel" style="display: flex; justify-content: center; gap: 20px; overflow: hidden;">
+          <!-- Casas se insertarán aquí dinámicamente -->
+        </div>
+      </section>
+
+      <footer style="background-color: #040608e7; color: white; text-align: center; padding: 15px 0; margin-top: 40px;">
+        <p>© 2024 Inmobiliaria PNK. Todos los derechos reservados.</p>
+        <p>Contacto: info@inmobiliariapnk.com | Tel: +54 9 11 1234 5678</p>
+      </footer>
+
+      <script>
+        // Datos de casas extraídos de propiedadcasi.php (simplificado)
+        const casas = [
+          {
+            titulo: "La Casa de la Playa",
+            descripcion: "Hermosa casa con jardín amplio y piscina.",
+            precio: "CLP $100.000.000",
+            imagen: "img/casapropi1.1.jpg",
+            link: "sabermas.php?id=1"
+          },
+          {
+            titulo: "Villa Moderna",
+            descripcion: "Moderna casa con acabados de lujo y garaje doble.",
+            precio: "CLP $120.000.000",
+            imagen: "img/casapropi1.2.jpg",
+            link: "sabermas.php?id=2"
+          },
+          {
+            titulo: "Residencia Familiar",
+            descripcion: "Acogedora casa familiar cerca de parques y escuelas.",
+            precio: "CLP $90.000.000",
+            imagen: "img/casapropi1.3.jpg",
+            link: "sabermas.php?id=3"
+          }
+          // Agrega más casas según sea necesario
+        ];
+
+        const carousel = document.getElementById('carousel');
+        let currentIndex = 0;
+        const visibleCount = 3; // Número de casas visibles al mismo tiempo
+
+        function renderCarousel() {
+          carousel.innerHTML = '';
+          for (let i = 0; i < visibleCount; i++) {
+            const casaIndex = (currentIndex + i) % casas.length;
+            const casa = casas[casaIndex];
+
+            const casaDiv = document.createElement('div');
+            casaDiv.style.border = '1px solid #000';
+            casaDiv.style.borderRadius = '8px';
+            casaDiv.style.padding = '10px';
+            casaDiv.style.width = '30%';
+            casaDiv.style.boxSizing = 'border-box';
+            casaDiv.style.backgroundColor = '#fff';
+            casaDiv.style.color = '#000';
+            casaDiv.style.textAlign = 'center';
+
+            casaDiv.innerHTML = `
+              <img src="${casa.imagen}" alt="Imagen de ${casa.titulo}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px;" />
+              <h3 style="margin: 10px 0;">${casa.titulo}</h3>
+              <p style="font-size: 14px; height: 40px; overflow: hidden;">${casa.descripcion}</p>
+              <p style="font-weight: bold; margin: 10px 0;">${casa.precio}</p>
+              <a href="${casa.link}" style="display: inline-block; padding: 8px 16px; background-color: #000; color: #fff; text-decoration: none; border-radius: 4px; text-transform: uppercase; font-weight: bold;">Quiero Saber Más</a>
+            `;
+
+            carousel.appendChild(casaDiv);
+          }
+        }
+
+        function rotateCarousel() {
+          currentIndex = (currentIndex + 1) % casas.length;
+          renderCarousel();
+        }
+
+        renderCarousel();
+        setInterval(rotateCarousel, 4000); // Cambiar cada 4 segundos
+      </script>
+</body>
+</html>
